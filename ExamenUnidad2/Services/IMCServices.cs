@@ -6,6 +6,9 @@ using ExamenUnidad2.Dtos.IMC;
 using ExamenUnidad2.Entities;
 using ExamenUnidad2.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace ExamenUnidad2.Services
 {
@@ -56,7 +59,7 @@ namespace ExamenUnidad2.Services
             {
                 Status = true,
                 StatusCode = 201,
-                Message = "Tarea creada correctamente",
+                Message = "Pasiente agregado exitosamente",
                 Data = taskDto
             };
         }
@@ -71,7 +74,7 @@ namespace ExamenUnidad2.Services
                 {
                     Status = true,
                     StatusCode = 404,
-                    Message = $" Tarea{id} no encontrada"
+                    Message = $" Pasiente con {id} no encontrada"
                 };
             }
 
@@ -83,7 +86,7 @@ namespace ExamenUnidad2.Services
             {
                 Status = true,
                 StatusCode = 200,
-                Message = $" Tarea{taskDto.Id} encontrada",
+                Message = $" Pasiente con {taskDto.Id} encontrada",
                 Data = taskDto
             };
         }
@@ -98,7 +101,7 @@ namespace ExamenUnidad2.Services
                 {
                     StatusCode = 404,
                     Status = false,
-                    Message = $"Tarea {id} no encontrada"
+                    Message = $"Pasiente con {id} no encontrada"
                 };
             }
 
@@ -113,7 +116,7 @@ namespace ExamenUnidad2.Services
             {
                 StatusCode = 200,
                 Status = true,
-                Message = $"la tarea {id} ha sido modificada",
+                Message = $"El pasiente con {id} ha sido modificada",
                 Data = taskDto
             };
         }
@@ -128,7 +131,7 @@ namespace ExamenUnidad2.Services
                 {
                     StatusCode = 404,
                     Status = false,
-                    Message = " Tarea no encontrada"
+                    Message = " Pasiente no encontrada"
                 };
 
             }
@@ -139,7 +142,7 @@ namespace ExamenUnidad2.Services
             {
                 StatusCode = 200,
                 Status = true,
-                Message = " Tarea borrada con exito"
+                Message = " Pasiente borrada con exito"
             };
         }
     }

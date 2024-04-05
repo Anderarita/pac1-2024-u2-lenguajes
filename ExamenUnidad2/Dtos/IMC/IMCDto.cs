@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System;
+
 namespace ExamenUnidad2.Dtos.IMC
 {
     public class IMCDto
@@ -11,6 +13,7 @@ namespace ExamenUnidad2.Dtos.IMC
 
         public decimal Peso { get; set;}
 
+        public string resultado { get; set; }
 
     }
 }

@@ -4,6 +4,7 @@ using ExamenUnidad2.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace ExamenUnidad2.Controllers
 {
     [Route("api/IMC")]
@@ -31,5 +32,30 @@ namespace ExamenUnidad2.Controllers
 
             return StatusCode(TasksResponse.StatusCode, TasksResponse);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ResponceDto<IMCDto>>> GetOneById(Guid id)
+        {
+            var taskResponse = await _imcServices.GetOneByIdAsync(id);
+
+            return StatusCode(taskResponse.StatusCode, taskResponse);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ResponceDto<IMCDto>>> Edit([FromBody] IMCEditDto dto, Guid id)
+        {
+            var taskResponse = await _imcServices.EditAsync(dto, id);
+
+            return StatusCode(taskResponse.StatusCode, taskResponse);
+        }
+
+        [HttpDelete("{id}")]
+
+        public async Task<ActionResult<ResponceDto<IMCDto>>> Delete(Guid id)
+        {
+            var taskResponse = await _imcServices.DeleteAsync(id);
+            return StatusCode(taskResponse.StatusCode, taskResponse);
+        }
+
     }
 }

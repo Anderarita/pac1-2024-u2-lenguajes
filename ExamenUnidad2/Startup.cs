@@ -2,6 +2,11 @@
 using ExamenUnidad2.Services;
 using ExamenUnidad2.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace ExamenUnidad2
 {
@@ -28,7 +33,7 @@ namespace ExamenUnidad2
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins(Configuration["FrontendURL"])
+                    builder.WithOrigins("http://localhost:5173/")
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                 });
